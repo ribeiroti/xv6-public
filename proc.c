@@ -6,6 +6,7 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
+#include "rand.h"
 
 struct {
   struct spinlock lock;
@@ -88,6 +89,7 @@ allocproc(void)
 found:
   p->state = EMBRYO;
   p->pid = nextpid++;
+  p->tickets = NTICKETS;
 
   release(&ptable.lock);
 
@@ -311,6 +313,19 @@ wait(void)
   }
 }
 
+int tickets_total(void){
+  struct proc *p;
+  int total = 0;
+
+  // sum the tickets from runnable processes and return
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+    if(p->state==RUNNABLE){
+      total += p->tickets;
+    }
+  }
+  return total;
+}
+
 //PAGEBREAK: 42
 // Per-CPU process scheduler.
 // Each CPU calls scheduler() after setting itself up.
@@ -324,6 +339,10 @@ scheduler(void)
 {
   struct proc *p;
   struct cpu *c = mycpu();
+  int count = 0;
+  long golden_ticket = 0;
+  int total_no_tickets = 0;
+
   c->proc = 0;
   
   for(;;){
@@ -332,9 +351,25 @@ scheduler(void)
 
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
+    // reset the variables every raffle
+    golden_ticket = 0;
+    count = 0;
+    total_no_tickets = 0;
+
+    // calculate tickets total for runnable processes
+    total_no_tickets = tickets_total();
+    golden_ticket = random_at_most(total_no_tickets);
+
+
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
       if(p->state != RUNNABLE)
         continue;
+
+      //find the process which holds the lottery winning ticket
+      if ((count + p->tickets) < golden_ticket){
+        count += p->tickets;
+        continue;
+      }
 
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
@@ -349,6 +384,7 @@ scheduler(void)
       // Process is done running for now.
       // It should have changed its p->state before coming back.
       c->proc = 0;
+      break;
     }
     release(&ptable.lock);
 
