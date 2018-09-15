@@ -10,7 +10,11 @@
 int
 sys_fork(void)
 {
-  return fork();
+  int tickets;
+
+  if(argint(0, &tickets) < 0)
+    return -1;
+  return fork(tickets);
 }
 
 int
@@ -88,17 +92,4 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
-}
-
-// lottery test
-int
-sys_settickets(void){
-  int tickets;
-
-  if (argint(0, &tickets) < 0) {
-    myproc()->tickets = NTICKETS; 	// default value
-  } else {
-    myproc()->tickets = tickets;
-  }
-  return 0;
 }

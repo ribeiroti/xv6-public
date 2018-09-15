@@ -4,6 +4,7 @@
 #include "stat.h"
 #include "user.h"
 #include "fcntl.h"
+#include "param.h"
 
 char *argv[] = { "sh", 0 };
 
@@ -21,7 +22,7 @@ main(void)
 
   for(;;){
     printf(1, "init: starting sh\n");
-    pid = fork();
+    pid = fork(NTICKETS);
     if(pid < 0){
       printf(1, "init: fork failed\n");
       exit();

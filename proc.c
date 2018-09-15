@@ -89,7 +89,6 @@ allocproc(void)
 found:
   p->state = EMBRYO;
   p->pid = nextpid++;
-  p->tickets = NTICKETS;
 
   release(&ptable.lock);
 
@@ -180,7 +179,7 @@ growproc(int n)
 // Sets up stack to return as if from system call.
 // Caller must set state of returned proc to RUNNABLE.
 int
-fork(void)
+fork(int tickets)
 {
   int i, pid;
   struct proc *np;
@@ -198,6 +197,7 @@ fork(void)
     np->state = UNUSED;
     return -1;
   }
+  np->tickets = tickets;
   np->sz = curproc->sz;
   np->parent = curproc;
   *np->tf = *curproc->tf;
@@ -365,7 +365,7 @@ scheduler(void)
       if(p->state != RUNNABLE)
         continue;
 
-      //find the process which holds the lottery winning ticket
+      // find the winner process
       if ((count + p->tickets) < golden_ticket){
         count += p->tickets;
         continue;
