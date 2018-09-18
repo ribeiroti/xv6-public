@@ -11,7 +11,7 @@ https://01siddharth.blogspot.com/2018/04/adding-system-call-in-xv6-os.html
 #include "param.h"
 
 #define TIME    300
-#define N       3
+#define N       5
 
 int i = 0;
 
