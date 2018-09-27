@@ -97,9 +97,12 @@ sys_uptime(void)
 int sys_lottery(void)
 {
   int n;
+
   if(argint(0, &n) < 0)
-    return  -1;
-  cprintf("Lottery Scheduller %d\n", n);
+  {
+      return  -1;
+  }
+
   return 0;
 
 }

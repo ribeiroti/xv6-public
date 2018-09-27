@@ -19,7 +19,7 @@ main(void)
    d:	51                   	push   %ecx
    e:	83 ec 10             	sub    $0x10,%esp
   if(fork(NTICKETS) > 0)
-  11:	6a 08                	push   $0x8
+  11:	6a 40                	push   $0x40
   13:	e8 72 02 00 00       	call   28a <fork>
   18:	83 c4 10             	add    $0x10,%esp
   1b:	85 c0                	test   %eax,%eax

@@ -55,7 +55,7 @@ fork1(int tickets)
 
   pid = fork(tickets);
       48:	83 ec 0c             	sub    $0xc,%esp
-      4b:	6a 08                	push   $0x8
+      4b:	6a 40                	push   $0x40
       4d:	e8 f8 0c 00 00       	call   d4a <fork>
   if(pid == -1)
       52:	83 c4 10             	add    $0x10,%esp
@@ -220,7 +220,7 @@ fork1(int tickets)
      1c8:	e8 85 0b 00 00       	call   d52 <exit>
   pid = fork(tickets);
      1cd:	83 ec 0c             	sub    $0xc,%esp
-     1d0:	6a 08                	push   $0x8
+     1d0:	6a 40                	push   $0x40
      1d2:	e8 73 0b 00 00       	call   d4a <fork>
   if(pid == -1)
      1d7:	83 c4 10             	add    $0x10,%esp
@@ -264,7 +264,7 @@ fork1(int tickets)
      237:	0f 88 c8 00 00 00    	js     305 <runcmd+0x185>
   pid = fork(tickets);
      23d:	83 ec 0c             	sub    $0xc,%esp
-     240:	6a 08                	push   $0x8
+     240:	6a 40                	push   $0x40
      242:	e8 03 0b 00 00       	call   d4a <fork>
   if(pid == -1)
      247:	83 c4 10             	add    $0x10,%esp
@@ -275,7 +275,7 @@ fork1(int tickets)
      251:	0f 84 bb 00 00 00    	je     312 <runcmd+0x192>
   pid = fork(tickets);
      257:	83 ec 0c             	sub    $0xc,%esp
-     25a:	6a 08                	push   $0x8
+     25a:	6a 40                	push   $0x40
      25c:	e8 e9 0a 00 00       	call   d4a <fork>
   if(pid == -1)
      261:	83 c4 10             	add    $0x10,%esp
@@ -301,7 +301,7 @@ fork1(int tickets)
      28e:	e9 35 ff ff ff       	jmp    1c8 <runcmd+0x48>
   pid = fork(tickets);
      293:	83 ec 0c             	sub    $0xc,%esp
-     296:	6a 08                	push   $0x8
+     296:	6a 40                	push   $0x40
      298:	e8 ad 0a 00 00       	call   d4a <fork>
   if(pid == -1)
      29d:	83 c4 10             	add    $0x10,%esp

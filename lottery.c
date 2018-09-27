@@ -1,35 +1,42 @@
 /*
-Created by lucas on 17/09/18.
-
 https://01siddharth.blogspot.com/2018/04/adding-system-call-in-xv6-os.html
 */
+
 #include "types.h"
 #include "stat.h"
 #include "user.h"
 #include "param.h"
 
-#define NFORK 3
-#define N     100
 
-int m = 0;
+#define TIME        300
+#define N           100000
+#define QTD_PROC    5
+
+
+void process_test(int id, int tickets);
+
 
 int main(void) {
-    int pid, i, j, k, l;
 
-    while (m < NFORK) {
-        if ((pid=fork(NTICKETS * ++m))) {
-            printf(1, ">>> pid %d tickets %d\n", pid, NTICKETS * m);
-            for (i = 0; i < N; i++) {
-                for (j = 0; j < N; j++) {
-                    for (k = 0; k < N; k++) {
-                        for (l = 0; l < N; l++) {
-                            printf(1, "");
-                        }
-                    }
-                }
-            }
-        }
-    }
+    process_test(0, 10);
+    process_test(1, 100);
+    process_test(2, 1000);
+    process_test(3, 5000);
+
+//    printf(0, "FINISHED!!\n");
 
     exit();
+}
+
+
+void process_test(int id, int tickets){
+
+    int i = 0;
+
+    if (fork(tickets)) {
+        while (i < N) {
+            i++;
+//            if ((i % 50) == 0) printf(1, "ID: %d | TICKETS: %d\n", id, tickets);
+        }
+    }
 }

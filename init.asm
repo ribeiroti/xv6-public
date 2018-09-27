@@ -48,7 +48,7 @@ main(void)
   50:	6a 01                	push   $0x1
   52:	e8 39 04 00 00       	call   490 <printf>
     pid = fork(NTICKETS);
-  57:	c7 04 24 08 00 00 00 	movl   $0x8,(%esp)
+  57:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
   5e:	e8 d7 02 00 00       	call   33a <fork>
     if(pid < 0){
   63:	83 c4 10             	add    $0x10,%esp

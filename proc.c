@@ -323,6 +323,7 @@ int tickets_total(void){
       total += p->tickets;
     }
   }
+
   return total;
 }
 
@@ -334,9 +335,8 @@ int tickets_total(void){
 //  - swtch to start running that process
 //  - eventually that process transfers control
 //      via swtch back to the scheduler.
-void
-scheduler(void)
-{
+void scheduler(void){
+
   struct proc *p;
   struct cpu *c = mycpu();
   int count = 0;
@@ -362,32 +362,39 @@ scheduler(void)
 
 
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->state != RUNNABLE)
-        continue;
 
-      // find the winner process
-      if ((count + p->tickets) < golden_ticket){
-        count += p->tickets;
-        continue;
-      }
+        if(p->state != RUNNABLE){
+            count += p->tickets;
+            continue;
+        }
 
-      // Switch to chosen process.  It is the process's job
-      // to release ptable.lock and then reacquire it
-      // before jumping back to us.
-      c->proc = p;
-      switchuvm(p);
-      p->state = RUNNING;
+        if (golden_ticket < count || golden_ticket > (count + p->tickets)){
+            count += p->tickets;
+            continue;
+        }
 
-      swtch(&(c->scheduler), p->context);
-      switchkvm();
 
-      // Process is done running for now.
-      // It should have changed its p->state before coming back.
-      c->proc = 0;
-      break;
+        cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d]\n", p->pid, golden_ticket, count, (count + p->tickets));
+
+
+        // Switch to chosen process.  It is the process's job
+        // to release ptable.lock and then reacquire it
+        // before jumping back to us.
+        c->proc = p;
+        switchuvm(p);
+        p->state = RUNNING;
+
+        swtch(&(c->scheduler), p->context);
+        switchkvm();
+
+        // Process is done running for now.
+        // It should have changed its p->state before coming back.
+        c->proc = 0;
+        break;
+
     }
-    release(&ptable.lock);
 
+    release(&ptable.lock);
   }
 }
 

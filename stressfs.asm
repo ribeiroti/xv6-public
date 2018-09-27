@@ -55,7 +55,7 @@ main(int argc, char *argv[])
   5b:	83 c4 10             	add    $0x10,%esp
     if(fork(NTICKETS) > 0)
   5e:	83 ec 0c             	sub    $0xc,%esp
-  61:	6a 08                	push   $0x8
+  61:	6a 40                	push   $0x40
   63:	e8 22 03 00 00       	call   38a <fork>
   68:	83 c4 10             	add    $0x10,%esp
   6b:	85 c0                	test   %eax,%eax
