@@ -1,3 +1,74 @@
+UFFS - Campus Chapecó - Curso de Ciência da Computação
+
+GRUPO: Bruno Ribeiro e Lucas Percisi.
+
+CCR: Sistemas Operacionais – 2018.2 - Prof. Marco Aurélio Spohn
+Descrição/Especificação dos Trabalhos I e II
+
+Objetivo geral: desenvolver conhecimento e prática de implementação de um componente básico (i.e.,
+escalonador de processos) em um sistema operacional didático.
+Objetivos específicos: a) estudar o código de uma implementação do Unix versão 6 para a plataforma Intel
+(xv6, desenvolvido no MIT); b) analisar e planejar a implementação de dois escalonadores de processos; c)
+implementar os escalonadores; d) avaliar os escalonadores através de experimentos; e) elaborar relatórios
+descritivos para cada um dos trabalhos.
+
+Plataforma: xv6 → http://pdos.csail.mit.edu/6.828/2012/xv6.html
+Modalidade: individual OU dupla (avaliação sempre será individual!)
+
+Descrição do Trabalho I: Implementar o escalonador de processos baseado em loteria (lottery
+scheduling). Na instanciação de um processo, deve-se passar ao sistema a quantidade de bilhetes
+que o novo processo recebe. Caso o usuário não forneça esse dado, o sistema assume um número
+default de bilhetes. Assumir também um número máximo de bilhetes que um processo pode receber.
+
+
+INSTRUÇÕES:
+
+1 - Dentro da pasta 'xv6-public' execute o comando $ 'make; make qemu-nox'
+
+2 - Aguarde o sistema iniciar a faça a chamada de sistema 'lottery'
+
+3 - Será exibido uma tabela periodicamente com as informações dos processos:
+
+    Exemplo:
+
+    PID     | NAME          | STATE         | QTD_T | OC    | PROC  | ESTI  |
+    1       | init          | sleep         | 0     |27     | 0%    | 0%    |
+    2       | sh            | sleep         | 64    |17     | 0%    | 0%    |
+    3       | lottery       | runable       | 64    |17     | 0%    | 0%    |
+    4       | lottery       | runable       | 100   |20     | 0%    | 0%    |
+    5       | lottery       | runable       | 400   |67     | 1%    | 1%    |
+    6       | lottery       | runable       | 900   |148    | 2%    | 2%    |
+    7       | lottery       | runable       | 1600  |240    | 3%    | 4%    |
+    8       | lottery       | runable       | 2500  |367    | 5%    | 6%    |
+    9       | lottery       | runable       | 3600  |573    | 9%    | 9%    |
+    10      | lottery       | runable       | 4900  |803    | 13%   | 12%   |
+    11      | lottery       | runable       | 6400  |1011   | 16%   | 16%   |
+    12      | lottery       | runable       | 8100  |1300   | 21%   | 21%   |
+    13      | lottery       | runable       | 10000 |1580   | 25%   | 25%   |
+    14      | lottery       | runable       | 1     |0      | 0%    | 0%    |
+
+    PID     = Id do processo
+    NAME    = Nome da chamada de sistema
+    STATE   = Estado do processo
+    QTD_D   = Quantidade de bilhetes que o processo recebeu
+    OC      = Quantidade de vezes que o processo ganhou a CPU
+    PROC    = Porcentagem de uso da CPU
+    ESTI    = Calculo estimado que o processo deve ocupar da CPU.
+
+
+4 - Para alterar a quantidade de processos para teste, abra o arquivo 'lottery.c'
+    e mude a macro QTD_PROC para a quantidade desejada.
+
+5 - Os processos recebem bilhetes de forma quadrática conforme instânciados.
+    Se deseja mudar isso, altera a linha 20 do arquivo lottery.c
+
+6 - Para finalizar os testes pressione ctrl-a e depois pressione x.
+
+
+
+###################################################################################
+###################################################################################
+###################################################################################
 xv6 is a re-implementation of Dennis Ritchie's and Ken Thompson's Unix
 Version 6 (v6).  xv6 loosely follows the structure and style of v6,
 but is implemented for a modern x86-based multiprocessor using ANSI C.
