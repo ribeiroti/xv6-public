@@ -406,6 +406,8 @@ void scheduler(void){
               (int)(((float)occurrences[p->pid]/total_occurrences(occurrences))*100)); //PORCENTAGEM
           }
 
+          if(d % 1000 == 0) procdump();
+
           // Mudança de contexto e estado.
           c->proc = p;
           switchuvm(p);
