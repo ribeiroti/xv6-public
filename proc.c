@@ -389,8 +389,9 @@ void scheduler(void){
 
           occurrences[p->pid]++;
           if(d % 100 == 0) {
-              cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d] | QTD_T: %d |OC: %d\n", \
-              p->pid, golden_ticket, count, (count + p->tickets), p->tickets, occurrences[p->pid]);
+              cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d] | QTD_T: %d | OC: %d | %d%\n", \
+              p->pid, golden_ticket, count, (count + p->tickets), p->tickets, occurrences[p->pid],\
+              (int)(((float)occurrences[p->pid]/total_no_tickets)*100)); //PORCENTAGEM
           }
 
           // Switch to chosen process.  It is the process's job
