@@ -24,7 +24,7 @@ int main() {
     }
 
 //  #TODO: Bug: Se chamar processo com um bilhete primeiro, não acontece o fork em todos.
-    process_test(1); // 0%
+    process_test(1); // Para não bugar.
 
     exit();
 }

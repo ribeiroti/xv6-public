@@ -28,7 +28,7 @@ int main() {
   19:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
     for (int i = 1; i <= QTD_PROC; i++) {
   20:	83 c3 01             	add    $0x1,%ebx
-  23:	83 fb 10             	cmp    $0x10,%ebx
+  23:	83 fb 0b             	cmp    $0xb,%ebx
   26:	74 20                	je     48 <main+0x48>
         process_test(i*i*100);
   28:	89 d8                	mov    %ebx,%eax
@@ -51,7 +51,7 @@ void process_test(int tickets){
   40:	eb fe                	jmp    40 <main+0x40>
   42:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
   48:	83 ec 0c             	sub    $0xc,%esp
-  4b:	6a 01                	push   $0x1
+  4b:	6a 00                	push   $0x0
   4d:	e8 88 02 00 00       	call   2da <fork>
   52:	83 c4 10             	add    $0x10,%esp
   55:	85 c0                	test   %eax,%eax
