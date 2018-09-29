@@ -316,11 +316,11 @@ wait(void)
   }
 }
 
+// Somátorio de tickets para gerar numéro randômico adequadamente.
 int tickets_total(void){
   struct proc *p;
   int total = 0;
 
-  // sum the tickets from runnable processes and return
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
     if(p->state==RUNNABLE){
       total += p->tickets;
@@ -328,6 +328,17 @@ int tickets_total(void){
   }
 
   return total;
+}
+
+// Somátorio de ocorrencia para gerar porcentagens.
+int total_occurrences(int *occurrences){
+
+    int total = 0;
+    for (int i = 0; i < NPROC; i++) {
+        total += occurrences[i];
+    }
+
+    return total;
 }
 
 //PAGEBREAK: 42
@@ -354,13 +365,13 @@ void scheduler(void){
 
   c->proc = 0;
 
-
     int d = 0;
     total_no_tickets = tickets_total();
     golden_ticket = random_at_most(ticks);
 
   for(;;){
-    // Enable interrupts on this processor.
+
+      // Enable interrupts on this processor.
       sti();
 
       // Loop over process table looking for process to run.
@@ -372,35 +383,33 @@ void scheduler(void){
       d++;
       // calculate tickets total for runnable processes
 
-      total_no_tickets = tickets_total();
-      golden_ticket = random_at_most(total_no_tickets);
+      total_no_tickets = tickets_total();  //Soma total de bilhetes do sistemas
+      golden_ticket = random_at_most(total_no_tickets);  // ticket sorteado randômicamente;
 
       for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
 
           if(p->state != RUNNABLE){
-              count += p->tickets;
+              count += p->tickets; //Soma count mesmo não sendo runnable
               continue;
           }
 
           if (golden_ticket < count || golden_ticket > (count + p->tickets)){
-            count += p->tickets;
+            count += p->tickets; //Soma count mesmo não sendo runnable
             continue;
           }
 
-          occurrences[p->pid]++;
-          if(d % 100 == 0) {
+          // Aqui o processo foi escolhido para rodar
+          occurrences[p->pid]++;  // Incrementa quantidade de ocorrências por processo
+          if(d % 100 == 0) {  //Deley para print
               cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d] | QTD_T: %d | OC: %d | %d%\n", \
               p->pid, golden_ticket, count, (count + p->tickets), p->tickets, occurrences[p->pid],\
-              (int)(((float)occurrences[p->pid]/total_no_tickets)*100)); //PORCENTAGEM
+              (int)(((float)occurrences[p->pid]/total_occurrences(occurrences))*100)); //PORCENTAGEM
           }
 
-          // Switch to chosen process.  It is the process's job
-          // to release ptable.lock and then reacquire it
-          // before jumping back to us.
+          // Mudança de contexto e estado.
           c->proc = p;
           switchuvm(p);
           p->state = RUNNING;
-
           swtch(&(c->scheduler), p->context);
           switchkvm();
 
