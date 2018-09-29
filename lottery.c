@@ -8,10 +8,7 @@ https://01siddharth.blogspot.com/2018/04/adding-system-call-in-xv6-os.html
 #include "param.h"
 
 
-
-#define TIME        300
 #define QTD_PROC    10
-
 
 void process_test(int tickets);
 

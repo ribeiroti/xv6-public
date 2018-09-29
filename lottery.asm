@@ -51,7 +51,7 @@ void process_test(int tickets){
   40:	eb fe                	jmp    40 <main+0x40>
   42:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
   48:	83 ec 0c             	sub    $0xc,%esp
-  4b:	6a 00                	push   $0x0
+  4b:	6a 01                	push   $0x1
   4d:	e8 88 02 00 00       	call   2da <fork>
   52:	83 c4 10             	add    $0x10,%esp
   55:	85 c0                	test   %eax,%eax
