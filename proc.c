@@ -599,7 +599,7 @@ procdump(void)
 
     if(p->state == SLEEPING){
       getcallerpcs((uint*)p->context->ebp+2, pc);
-        for(i=0; i<10 && pc[i] != 0; i++)
+        for(int i=0; i<10 && pc[i] != 0; i++)
           cprintf(" %p", pc[i]);
     }
 
