@@ -389,7 +389,7 @@ void scheduler(void){
 
           occurrences[p->pid]++;
           if(d % 100 == 0) {
-              cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d] | QTD_T: %d |OC: %d\n\n", \
+              cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d] | QTD_T: %d |OC: %d\n", \
               p->pid, golden_ticket, count, (count + p->tickets), p->tickets, occurrences[p->pid]);
           }
 
