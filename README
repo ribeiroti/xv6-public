@@ -53,7 +53,7 @@ INSTRUÇÕES:
     QTD_D   = Quantidade de bilhetes que o processo recebeu
     OC      = Quantidade de vezes que o processo ganhou a CPU
     PROC    = Porcentagem de uso da CPU
-    ESTI    = Calculo estimado que o processo deve ocupar da CPU.
+    ESTI    = Estimativa de uso da CPU para cada processo em % após estabilização das occorrências.
 
 
 4 - Para alterar a quantidade de processos para teste, abra o arquivo 'lottery.c'
