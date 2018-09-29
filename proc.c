@@ -400,13 +400,18 @@ void scheduler(void){
 
           // Aqui o processo foi escolhido para rodar
           occurrences[p->pid]++;  // Incrementa quantidade de ocorrências por processo
+          if(d % 100 == 0){
+              procdump(occurrences);
+              cprintf("\n");
+          }
+
+          /*
           if(d % 100 == 0) {  //Deley para print
               cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d] | QTD_T: %d | OC: %d | %d%\n", \
               p->pid, golden_ticket, count, (count + p->tickets), p->tickets, occurrences[p->pid],\
               (int)(((float)occurrences[p->pid]/total_occurrences(occurrences))*100)); //PORCENTAGEM
           }
-
-          if(d % 1000 == 0) procdump();
+          */
 
           // Mudança de contexto e estado.
           c->proc = p;
@@ -572,7 +577,7 @@ kill(int pid)
 // Runs when user types ^P on console.
 // No lock to avoid wedging a stuck machine further.
 void
-procdump(void)
+procdump(int *occurrences)
 {
   static char *states[] = {
   [UNUSED]    "unused",
@@ -598,13 +603,11 @@ procdump(void)
         state = "???";
 
 
+      // ESTATÍSTICAS DOS PROCESSOS
 
-      // ESTATÍSTICAS DO LOTTERY
-
-      if(!strncmp(p->name, "lottery", strlen("lottery"))){
-          cprintf("%d %s %s %d", p->pid, state, p->name, p->tickets);
-      }
-
+      cprintf("PID: %d\t| NAME: %s\t| STATE: %s   \t| QTD_T: %d\t| OC: %d   \t| %d% ", \
+              p->pid, p->name, state, p->tickets, occurrences[p->pid],\
+              (int)(((float)occurrences[p->pid]/total_occurrences(occurrences))*100)); //PORCENTAGEM
 
       //----------------------------------------------
 
@@ -612,7 +615,8 @@ procdump(void)
     if(p->state == SLEEPING){
       getcallerpcs((uint*)p->context->ebp+2, pc);
         for(int i=0; i<10 && pc[i] != 0; i++)
-          cprintf(" %p", pc[i]);
+            continue;
+//          cprintf(" %p", pc[i]);
     }
 
     cprintf("\n");
