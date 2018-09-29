@@ -346,6 +346,11 @@ void scheduler(void){
   int count = 0;
   long golden_ticket = 0;
   int total_no_tickets = 0;
+  int occurrences[NPROC];
+
+    for (int i = 0; i < NPROC; i++) {
+        occurrences[i] = 0;
+    }
 
   c->proc = 0;
 
@@ -382,9 +387,10 @@ void scheduler(void){
             continue;
           }
 
+          occurrences[p->pid]++;
           if(d % 100 == 0) {
-              procdump();
-              cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d]\n\n", p->pid, golden_ticket, count, (count + p->tickets));
+              cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d] | QTD_T: %d |OC: %d\n\n", \
+              p->pid, golden_ticket, count, (count + p->tickets), p->tickets, occurrences[p->pid]);
           }
 
           // Switch to chosen process.  It is the process's job
