@@ -42,10 +42,10 @@ struct cpu*
 mycpu(void)
 {
   int apicid, i;
-  
+
   if(readeflags()&FL_IF)
     panic("mycpu called with interrupts enabled\n");
-  
+
   apicid = lapicid();
   // APIC IDs are not guaranteed to be contiguous. Maybe we should have
   // a reverse map, or reserve a register to store &cpus[i].
@@ -128,7 +128,7 @@ userinit(void)
   extern char _binary_initcode_start[], _binary_initcode_size[];
 
   p = allocproc();
-  
+
   initproc = p;
   if((p->pgdir = setupkvm()) == 0)
     panic("userinit: out of memory?");
@@ -280,7 +280,7 @@ wait(void)
   struct proc *p;
   int havekids, pid;
   struct proc *curproc = myproc();
-  
+
   acquire(&ptable.lock);
   for(;;){
     // Scan through table looking for exited children.
@@ -399,19 +399,13 @@ void scheduler(void){
           }
 
           // Aqui o processo foi escolhido para rodar
+
+          //EXIBE INFORMAÇÃO DOS PROCESSOS
           occurrences[p->pid]++;  // Incrementa quantidade de ocorrências por processo
           if(d % 100 == 0){
               procdump(occurrences);
               cprintf("\n");
           }
-
-          /*
-          if(d % 100 == 0) {  //Deley para print
-              cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d] | QTD_T: %d | OC: %d | %d%\n", \
-              p->pid, golden_ticket, count, (count + p->tickets), p->tickets, occurrences[p->pid],\
-              (int)(((float)occurrences[p->pid]/total_occurrences(occurrences))*100)); //PORCENTAGEM
-          }
-          */
 
           // Mudança de contexto e estado.
           c->proc = p;
@@ -494,7 +488,7 @@ void
 sleep(void *chan, struct spinlock *lk)
 {
   struct proc *p = myproc();
-  
+
   if(p == 0)
     panic("sleep");
 
@@ -592,6 +586,9 @@ procdump(int *occurrences)
   char *state;
   uint pc[10];
 
+
+
+  cprintf("PID\t| NAME\t\t| STATE   \t| QTD_T\t| OC\t| PROC\t| ESTI\t|\n");
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
 
       if(p->state == UNUSED)
@@ -604,11 +601,10 @@ procdump(int *occurrences)
 
 
       // ESTATÍSTICAS DOS PROCESSOS
-
-      cprintf("PID: %d\t| NAME: %s\t| STATE: %s   \t| QTD_T: %d\t| OC: %d   \t| %d% ", \
+      cprintf("%d\t| %s     \t| %s   \t| %d\t|%d\t| %d%\t| %d%\t|", \
               p->pid, p->name, state, p->tickets, occurrences[p->pid],\
-              (int)(((float)occurrences[p->pid]/total_occurrences(occurrences))*100)); //PORCENTAGEM
-
+              (int)(((float)occurrences[p->pid]/total_occurrences(occurrences))*100), \
+              (int)(((float)p->tickets/tickets_total())*100)); //PORCENTAGEM ESTIMADA
       //----------------------------------------------
 
 
