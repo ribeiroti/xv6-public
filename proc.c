@@ -8,6 +8,9 @@
 #include "spinlock.h"
 #include "rand.h"
 
+//#include "time.h"
+//#include "_mingw.h"
+
 struct {
   struct spinlock lock;
   struct proc proc[NPROC];
@@ -335,6 +338,7 @@ int tickets_total(void){
 //  - swtch to start running that process
 //  - eventually that process transfers control
 //      via swtch back to the scheduler.
+
 void scheduler(void){
 
   struct proc *p;
@@ -344,53 +348,59 @@ void scheduler(void){
   int total_no_tickets = 0;
 
   c->proc = 0;
-  
+
+
+    int d = 0;
+    total_no_tickets = tickets_total();
+    golden_ticket = random_at_most(ticks);
+
   for(;;){
     // Enable interrupts on this processor.
-    sti();
+      sti();
 
-    // Loop over process table looking for process to run.
-    acquire(&ptable.lock);
-    // reset the variables every raffle
-    golden_ticket = 0;
-    count = 0;
-    total_no_tickets = 0;
+      // Loop over process table looking for process to run.
+      acquire(&ptable.lock);
+      // reset the variables every raffle
+      golden_ticket = 0;
+      count = 0;
+      total_no_tickets = 0;
+      d++;
+      // calculate tickets total for runnable processes
 
-    // calculate tickets total for runnable processes
-    total_no_tickets = tickets_total();
-    golden_ticket = random_at_most(total_no_tickets);
+      total_no_tickets = tickets_total();
+      golden_ticket = random_at_most(total_no_tickets);
 
+      for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
 
-    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+          if(p->state != RUNNABLE){
+              count += p->tickets;
+              continue;
+          }
 
-        if(p->state != RUNNABLE){
+          if (golden_ticket < count || golden_ticket > (count + p->tickets)){
             count += p->tickets;
             continue;
-        }
+          }
 
-        if (golden_ticket < count || golden_ticket > (count + p->tickets)){
-            count += p->tickets;
-            continue;
-        }
+          if(d % 100 == 0) {
+              procdump();
+              cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d]\n\n", p->pid, golden_ticket, count, (count + p->tickets));
+          }
 
+          // Switch to chosen process.  It is the process's job
+          // to release ptable.lock and then reacquire it
+          // before jumping back to us.
+          c->proc = p;
+          switchuvm(p);
+          p->state = RUNNING;
 
-        cprintf("PID: %d | Golden: %d | Intervalo: [%d:%d]\n", p->pid, golden_ticket, count, (count + p->tickets));
+          swtch(&(c->scheduler), p->context);
+          switchkvm();
 
-
-        // Switch to chosen process.  It is the process's job
-        // to release ptable.lock and then reacquire it
-        // before jumping back to us.
-        c->proc = p;
-        switchuvm(p);
-        p->state = RUNNING;
-
-        swtch(&(c->scheduler), p->context);
-        switchkvm();
-
-        // Process is done running for now.
-        // It should have changed its p->state before coming back.
-        c->proc = 0;
-        break;
+          // Process is done running for now.
+          // It should have changed its p->state before coming back.
+          c->proc = 0;
+          break;
 
     }
 
@@ -550,28 +560,44 @@ procdump(void)
   [UNUSED]    "unused",
   [EMBRYO]    "embryo",
   [SLEEPING]  "sleep ",
-  [RUNNABLE]  "runble",
+  [RUNNABLE]  "runable",
   [RUNNING]   "run   ",
   [ZOMBIE]    "zombie"
   };
-  int i;
+
   struct proc *p;
   char *state;
   uint pc[10];
 
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-    if(p->state == UNUSED)
-      continue;
-    if(p->state >= 0 && p->state < NELEM(states) && states[p->state])
-      state = states[p->state];
-    else
-      state = "???";
-    cprintf("%d %s %s", p->pid, state, p->name);
+
+      if(p->state == UNUSED)
+        continue;
+
+      if(p->state >= 0 && p->state < NELEM(states) && states[p->state])
+        state = states[p->state];
+      else
+        state = "???";
+
+
+
+      // ESTATÍSTICAS DO LOTTERY
+
+      if(!strncmp(p->name, "lottery", strlen("lottery"))){
+          cprintf("%d %s %s %d", p->pid, state, p->name, p->tickets);
+      }
+
+
+      //----------------------------------------------
+
+
     if(p->state == SLEEPING){
       getcallerpcs((uint*)p->context->ebp+2, pc);
-      for(i=0; i<10 && pc[i] != 0; i++)
-        cprintf(" %p", pc[i]);
+      //      for(i=0; i<10 && pc[i] != 0; i++)
+      //        cprintf(" %p", pc[i]);
+      //        continue;
     }
+
     cprintf("\n");
   }
 }
