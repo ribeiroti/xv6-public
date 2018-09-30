@@ -5,27 +5,23 @@ https://01siddharth.blogspot.com/2018/04/adding-system-call-in-xv6-os.html
 #include "types.h"
 #include "stat.h"
 #include "user.h"
-#include "param.h"
-
 
 #define QTD_PROC    10
 
 void process_test(int tickets);
 
-
 int main() {
 
 
     for (int i = 1; i <= QTD_PROC; i++) {
-        process_test(i*i*100);
+        process_test(i*100);
     }
 
-//  #TODO: Bug: Se chamar processo com um bilhete primeiro, não acontece o fork em todos.
+    // TODO: Bug: Se chamar processo com um bilhete primeiro, não acontece o fork em todos.
     process_test(1); // Para não bugar.
 
     exit();
 }
-
 
 void process_test(int tickets){
 

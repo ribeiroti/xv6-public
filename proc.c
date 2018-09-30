@@ -586,7 +586,7 @@ procdump(int *occurrences)
   [UNUSED]    "unused",
   [EMBRYO]    "embryo",
   [SLEEPING]  "sleep ",
-  [RUNNABLE]  "runable",
+  [RUNNABLE]  "runnable",
   [RUNNING]   "run   ",
   [ZOMBIE]    "zombie"
   };
