@@ -200,7 +200,16 @@ fork(int tickets)
     np->state = UNUSED;
     return -1;
   }
-  np->tickets = tickets;
+
+  // check tickets passed by argument
+  if (tickets == 0) {
+    np->tickets = curproc->tickets;
+  } else if (tickets > MAXTICKETS) {
+    np->tickets = MAXTICKETS;
+  } else {
+    np->tickets = tickets;
+  }
+
   np->sz = curproc->sz;
   np->parent = curproc;
   *np->tf = *curproc->tf;
