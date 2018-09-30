@@ -10,25 +10,24 @@ https://01siddharth.blogspot.com/2018/04/adding-system-call-in-xv6-os.html
 
 void process_test(int tickets);
 
-
 int main() {
 
+
     for (int i = 1; i <= QTD_PROC; i++) {
-        process_test(i*i*10);
+        process_test(i*100);
     }
 
     // TODO: Bug: Se chamar processo com um bilhete primeiro, não acontece o fork em todos.
-    process_test(1);
+    process_test(1); // Para não bugar.
 
     exit();
 }
-
 
 void process_test(int tickets){
 
     int i = 0;
 
-    if ((fork(tickets)) != 0) {
+    if (fork(tickets)) {
 
         // LOOP INFINITO INCREMENTANDO VARIÁVEL PARA NÃO OTIMIZAR
         while (1) i++;
