@@ -202,8 +202,8 @@ fork(int tickets)
   }
 
   // check tickets passed by argument
-  if (tickets == 0) {
-    np->tickets = curproc->tickets;
+  if (!tickets) {
+    np->tickets = NTICKETS;
   } else if (tickets > MAXTICKETS) {
     np->tickets = MAXTICKETS;
   } else {
