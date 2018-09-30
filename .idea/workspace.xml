@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="xv6" targetName="xv6" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="02714524-c55a-4c3f-9f06-4c8d3e0d1038" name="Default Changelist" comment="fork alterado para receber tickets">
+      <change beforePath="$PROJECT_DIR$/_cat" beforeDir="false" afterPath="$PROJECT_DIR$/_cat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_echo" beforeDir="false" afterPath="$PROJECT_DIR$/_echo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_forktest" beforeDir="false" afterPath="$PROJECT_DIR$/_forktest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_grep" beforeDir="false" afterPath="$PROJECT_DIR$/_grep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_init" beforeDir="false" afterPath="$PROJECT_DIR$/_init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_kill" beforeDir="false" afterPath="$PROJECT_DIR$/_kill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ln" beforeDir="false" afterPath="$PROJECT_DIR$/_ln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_lottery" beforeDir="false" afterPath="$PROJECT_DIR$/_lottery" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ls" beforeDir="false" afterPath="$PROJECT_DIR$/_ls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_mkdir" beforeDir="false" afterPath="$PROJECT_DIR$/_mkdir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_rm" beforeDir="false" afterPath="$PROJECT_DIR$/_rm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_sh" beforeDir="false" afterPath="$PROJECT_DIR$/_sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_stressfs" beforeDir="false" afterPath="$PROJECT_DIR$/_stressfs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_usertests" beforeDir="false" afterPath="$PROJECT_DIR$/_usertests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_wc" beforeDir="false" afterPath="$PROJECT_DIR$/_wc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_zombie" beforeDir="false" afterPath="$PROJECT_DIR$/_zombie" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cat.asm" beforeDir="false" afterPath="$PROJECT_DIR$/cat.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cat.sym" beforeDir="false" afterPath="$PROJECT_DIR$/cat.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/echo.asm" beforeDir="false" afterPath="$PROJECT_DIR$/echo.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/echo.sym" beforeDir="false" afterPath="$PROJECT_DIR$/echo.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forktest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/forktest.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forktest.c" beforeDir="false" afterPath="$PROJECT_DIR$/forktest.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forktest.d" beforeDir="false" afterPath="$PROJECT_DIR$/forktest.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs.img" beforeDir="false" afterPath="$PROJECT_DIR$/fs.img" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grep.asm" beforeDir="false" afterPath="$PROJECT_DIR$/grep.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grep.sym" beforeDir="false" afterPath="$PROJECT_DIR$/grep.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.asm" beforeDir="false" afterPath="$PROJECT_DIR$/init.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/init.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.d" beforeDir="false" afterPath="$PROJECT_DIR$/init.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.sym" beforeDir="false" afterPath="$PROJECT_DIR$/init.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel" beforeDir="false" afterPath="$PROJECT_DIR$/kernel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.sym" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kill.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kill.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kill.sym" beforeDir="false" afterPath="$PROJECT_DIR$/kill.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ln.asm" beforeDir="false" afterPath="$PROJECT_DIR$/ln.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ln.sym" beforeDir="false" afterPath="$PROJECT_DIR$/ln.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lottery.asm" beforeDir="false" afterPath="$PROJECT_DIR$/lottery.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lottery.c" beforeDir="false" afterPath="$PROJECT_DIR$/lottery.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lottery.sym" beforeDir="false" afterPath="$PROJECT_DIR$/lottery.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ls.asm" beforeDir="false" afterPath="$PROJECT_DIR$/ls.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ls.sym" beforeDir="false" afterPath="$PROJECT_DIR$/ls.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mkdir.asm" beforeDir="false" afterPath="$PROJECT_DIR$/mkdir.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mkdir.sym" beforeDir="false" afterPath="$PROJECT_DIR$/mkdir.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/param.h" beforeDir="false" afterPath="$PROJECT_DIR$/param.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rm.asm" beforeDir="false" afterPath="$PROJECT_DIR$/rm.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rm.sym" beforeDir="false" afterPath="$PROJECT_DIR$/rm.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sh.asm" beforeDir="false" afterPath="$PROJECT_DIR$/sh.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sh.sym" beforeDir="false" afterPath="$PROJECT_DIR$/sh.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stressfs.asm" beforeDir="false" afterPath="$PROJECT_DIR$/stressfs.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stressfs.c" beforeDir="false" afterPath="$PROJECT_DIR$/stressfs.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stressfs.d" beforeDir="false" afterPath="$PROJECT_DIR$/stressfs.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stressfs.sym" beforeDir="false" afterPath="$PROJECT_DIR$/stressfs.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usertests.asm" beforeDir="false" afterPath="$PROJECT_DIR$/usertests.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usertests.c" beforeDir="false" afterPath="$PROJECT_DIR$/usertests.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usertests.sym" beforeDir="false" afterPath="$PROJECT_DIR$/usertests.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wc.asm" beforeDir="false" afterPath="$PROJECT_DIR$/wc.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wc.sym" beforeDir="false" afterPath="$PROJECT_DIR$/wc.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xv6.img" beforeDir="false" afterPath="$PROJECT_DIR$/xv6.img" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zombie.asm" beforeDir="false" afterPath="$PROJECT_DIR$/zombie.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zombie.c" beforeDir="false" afterPath="$PROJECT_DIR$/zombie.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zombie.d" beforeDir="false" afterPath="$PROJECT_DIR$/zombie.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zombie.sym" beforeDir="false" afterPath="$PROJECT_DIR$/zombie.sym" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FUSProjectUsageTrigger">
+    <session id="824036117">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="15" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="5" />
+          <entry key="project.open.time.8" value="8" />
+          <entry key="project.opened" value="16" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="Makefile" value="4" />
+          <entry key="S" value="4" />
+          <entry key="asm" value="2" />
+          <entry key="c" value="54" />
+          <entry key="gitignore" value="1" />
+          <entry key="h" value="32" />
+          <entry key="rej" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Assembly file" value="6" />
+          <entry key="ObjectiveC" value="86" />
+          <entry key="PLAIN_TEXT" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Makefile" value="28" />
+          <entry key="S" value="23" />
+          <entry key="c" value="3213" />
+          <entry key="h" value="354" />
+          <entry key="txt" value="151" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Assembly file" value="23" />
+          <entry key="ObjectiveC" value="3567" />
+          <entry key="PLAIN_TEXT" value="179" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proc.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="215" selection-start-line="215" selection-end-line="215" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/forktest.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding>
+                <element signature="e#105#123#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/init.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+              <folding>
+                <element signature="e#41#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lottery.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+              <folding>
+                <element signature="e#82#100#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stressfs.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+              <folding>
+                <element signature="e#371#389#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/param.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Makefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usertests.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-column="18" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zombie.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding>
+                <element signature="e#64#82#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>testlottery</find>
+      <find>fork()</find>
+      <find>fork1(</find>
+      <find>pid1 = fork(NTICKETS)</find>
+      <find>lottery(</find>
+      <find>scheduler(</find>
+      <find>SYS_lottery</find>
+      <find>NCPU</find>
+      <find>fd</find>
+      <find>cprintf()</find>
+      <find>mut</find>
+      <find>zombie!</find>
+      <find>wpid</find>
+      <find>exec(</find>
+      <find>++</find>
+      <find>*argv[]</find>
+      <find>sprintf</find>
+      <find>*argv[] =</find>
+      <find>stdio</find>
+      <find>void printf</find>
+      <find>rand</find>
+      <find>rand.</find>
+      <find>tick</find>
+      <find>trap.</find>
+      <find>ticks</find>
+      <find>unexpected trap</find>
+      <find>procdump</find>
+      <find>procdump(</find>
+      <find>int fork</find>
+      <find>fork(NTICKETS)</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>fork(NTICKETS)</replace>
+      <replace>fork(0)</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/tickets.c" />
+        <option value="$PROJECT_DIR$/random.c" />
+        <option value="$PROJECT_DIR$/random.h" />
+        <option value="$PROJECT_DIR$/proc.h" />
+        <option value="$PROJECT_DIR$/usys.S" />
+        <option value="$PROJECT_DIR$/rand.h" />
+        <option value="$PROJECT_DIR$/syscall.h" />
+        <option value="$PROJECT_DIR$/syscall.c" />
+        <option value="$PROJECT_DIR$/testlottery.c" />
+        <option value="$PROJECT_DIR$/sysproc.c" />
+        <option value="$PROJECT_DIR$/defs.h" />
+        <option value="$PROJECT_DIR$/sh.c" />
+        <option value="$PROJECT_DIR$/user.h" />
+        <option value="$PROJECT_DIR$/rand.c" />
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/forktest.c" />
+        <option value="$PROJECT_DIR$/init.c" />
+        <option value="$PROJECT_DIR$/stressfs.c" />
+        <option value="$PROJECT_DIR$/zombie.c" />
+        <option value="$PROJECT_DIR$/usertests.c" />
+        <option value="$PROJECT_DIR$/proc.c" />
+        <option value="$PROJECT_DIR$/param.h" />
+        <option value="$PROJECT_DIR$/lottery.c" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="292" />
+    <option name="y" value="24" />
+    <option name="width" value="1400" />
+    <option name="height" value="1028" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Source Files'; set:Project Source Files; class com.jetbrains.cidr.lang.search.scopes.ProjectSourcesScopeProvider$SourceFilesScope">
+          <expand>
+            <path>
+              <item name="xv6" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="xv6" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="xv6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xv6" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/proc.c" />
+    <property name="two.files.diff.last.used.file" value="$USER_HOME$/Downloads/proc.c" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Build All">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="xv6" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="xv6" TARGET_NAME="xv6" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="xv6" RUN_TARGET_NAME="xv6">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Build All" />
+      <item itemvalue="Application.xv6" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02714524-c55a-4c3f-9f06-4c8d3e0d1038" name="Default Changelist" comment="" />
+      <created>1536344592679</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1536344592679</updated>
+      <workItem from="1536344595280" duration="7329000" />
+      <workItem from="1536520134702" duration="10561000" />
+      <workItem from="1536708189109" duration="1861000" />
+      <workItem from="1536865415799" duration="548000" />
+      <workItem from="1537032828135" duration="7329000" />
+      <workItem from="1537109574890" duration="2621000" />
+      <workItem from="1537231328699" duration="7317000" />
+      <workItem from="1537241188429" duration="363000" />
+      <workItem from="1537313359697" duration="1359000" />
+      <workItem from="1537641203998" duration="9722000" />
+      <workItem from="1537721945189" duration="683000" />
+      <workItem from="1537918529833" duration="215000" />
+      <workItem from="1538086701811" duration="10958000" />
+      <workItem from="1538236538139" duration="5581000" />
+      <workItem from="1538246441208" duration="3557000" />
+      <workItem from="1538318044829" duration="3006000" />
+    </task>
+    <task id="LOCAL-00001" summary="fork alterado para receber tickets">
+      <created>1537052097300</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1537052097300</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chamada de sistema alterada para testes do scheduler">
+      <created>1537240635882</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1537240635883</updated>
+    </task>
+    <task id="LOCAL-00003" summary="executa mais processos">
+      <created>1537241033391</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1537241033391</updated>
+    </task>
+    <task id="LOCAL-00004" summary="teste de lottery scheduler com 01 cpu">
+      <created>1537652651554</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1537652651554</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="73010000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22111663" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3294979" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3294979" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3294979" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.3294979" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fork alterado para receber tickets" />
+    <MESSAGE value="chamada de sistema alterada para testes do scheduler" />
+    <MESSAGE value="executa mais processos" />
+    <MESSAGE value="teste de lottery scheduler com 01 cpu" />
+    <option name="LAST_COMMIT_MESSAGE" value="teste de lottery scheduler com 01 cpu" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-316" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kernel.asm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200220">
+          <caret line="13348" column="5" selection-start-line="13348" selection-start-column="5" selection-end-line="13348" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forktest.asm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13005">
+          <caret line="867" column="8" selection-start-line="867" selection-start-column="8" selection-end-line="867" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tickets.c" />
+    <entry file="file://$PROJECT_DIR$/proc.c.rej" />
+    <entry file="file://$PROJECT_DIR$/usys.S">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="51" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/syscall.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="107" column="18" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testlottery.c" />
+    <entry file="file://$PROJECT_DIR$/sh.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4335">
+          <caret line="289" column="8" selection-start-line="289" selection-start-column="8" selection-end-line="289" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spinlock.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/syscall.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exec.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/x86.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mkfs.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/stdio.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stat.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ulib.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/string.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/printf.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rand.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/defs.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2445">
+          <caret line="163" column="9" selection-start-line="163" selection-start-column="9" selection-end-line="163" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/console.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3450">
+          <caret line="230" column="4" selection-start-line="230" selection-start-column="4" selection-end-line="230" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rand.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sysproc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="88" selection-start-line="88" selection-end-line="93" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trap.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="83" column="43" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/traps.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forktest.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="e#105#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fcntl.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stressfs.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding>
+            <element signature="e#371#389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/memlayout.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zombie.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="e#64#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usertests.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="215" selection-start-line="215" selection-end-line="215" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/init.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="e#41#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/param.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lottery.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding>
+            <element signature="e#82#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
