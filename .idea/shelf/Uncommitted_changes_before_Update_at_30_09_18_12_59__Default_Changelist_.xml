@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_30_09_18_12_59_[Default_Changelist]" date="1538323183350" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_09_18_12_59_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 30/09/18 12:59 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="_lottery" />
+    <option name="AFTER_PATH" value="_lottery" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_09_18_12_59_[Default_Changelist]/_lottery" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="fs.img" />
+    <option name="AFTER_PATH" value="fs.img" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_09_18_12_59_[Default_Changelist]/fs.img" />
+  </binary>
+</changelist>
