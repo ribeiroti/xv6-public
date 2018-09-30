@@ -226,8 +226,8 @@ main(int argc, char *argv[])
      206:	68 53 3e 00 00       	push   $0x3e53
      20b:	ff 35 a8 5e 00 00    	pushl  0x5ea8
      211:	e8 8a 38 00 00       	call   3aa0 <printf>
-  pid = fork(NTICKETS);
-     216:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+  pid = fork(0);
+     216:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
      21d:	e8 28 37 00 00       	call   394a <fork>
   if(pid < 0){
      222:	83 c4 10             	add    $0x10,%esp
@@ -318,9 +318,9 @@ main(int argc, char *argv[])
      312:	83 c4 10             	add    $0x10,%esp
      315:	85 c0                	test   %eax,%eax
      317:	0f 88 90 00 00 00    	js     3ad <openiputtest+0xbd>
-  pid = fork(NTICKETS);
+  pid = fork(0);
      31d:	83 ec 0c             	sub    $0xc,%esp
-     320:	6a 40                	push   $0x40
+     320:	6a 00                	push   $0x0
      322:	e8 23 36 00 00       	call   394a <fork>
   if(pid < 0){
      327:	83 c4 10             	add    $0x10,%esp
@@ -982,10 +982,10 @@ main(int argc, char *argv[])
      a32:	83 c4 10             	add    $0x10,%esp
      a35:	85 c0                	test   %eax,%eax
      a37:	0f 85 4e 01 00 00    	jne    b8b <pipe1+0x16b>
-  pid = fork(NTICKETS);
+  pid = fork(0);
      a3d:	83 ec 0c             	sub    $0xc,%esp
      a40:	89 c3                	mov    %eax,%ebx
-     a42:	6a 40                	push   $0x40
+     a42:	6a 00                	push   $0x0
      a44:	e8 01 2f 00 00       	call   394a <fork>
   if(pid == 0){
      a49:	83 c4 10             	add    $0x10,%esp
@@ -1151,23 +1151,23 @@ main(int argc, char *argv[])
      bd9:	68 8c 41 00 00       	push   $0x418c
      bde:	6a 01                	push   $0x1
      be0:	e8 bb 2e 00 00       	call   3aa0 <printf>
-  pid1 = fork(NTICKETS);
-     be5:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+  pid1 = fork(0);
+     be5:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
      bec:	e8 59 2d 00 00       	call   394a <fork>
   if(pid1 == 0)
      bf1:	83 c4 10             	add    $0x10,%esp
      bf4:	85 c0                	test   %eax,%eax
      bf6:	75 02                	jne    bfa <preempt+0x2a>
      bf8:	eb fe                	jmp    bf8 <preempt+0x28>
-  pid2 = fork(NTICKETS);
+  pid2 = fork(0);
      bfa:	83 ec 0c             	sub    $0xc,%esp
      bfd:	89 c7                	mov    %eax,%edi
-     bff:	6a 40                	push   $0x40
+     bff:	6a 00                	push   $0x0
      c01:	e8 44 2d 00 00       	call   394a <fork>
   if(pid2 == 0)
      c06:	83 c4 10             	add    $0x10,%esp
      c09:	85 c0                	test   %eax,%eax
-  pid2 = fork(NTICKETS);
+  pid2 = fork(0);
      c0b:	89 c6                	mov    %eax,%esi
   if(pid2 == 0)
      c0d:	75 02                	jne    c11 <preempt+0x41>
@@ -1177,13 +1177,13 @@ main(int argc, char *argv[])
      c14:	83 ec 0c             	sub    $0xc,%esp
      c17:	50                   	push   %eax
      c18:	e8 45 2d 00 00       	call   3962 <pipe>
-  pid3 = fork(NTICKETS);
-     c1d:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+  pid3 = fork(0);
+     c1d:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
      c24:	e8 21 2d 00 00       	call   394a <fork>
   if(pid3 == 0){
      c29:	83 c4 10             	add    $0x10,%esp
      c2c:	85 c0                	test   %eax,%eax
-  pid3 = fork(NTICKETS);
+  pid3 = fork(0);
      c2e:	89 c3                	mov    %eax,%ebx
   if(pid3 == 0){
      c30:	75 46                	jne    c78 <preempt+0xa8>
@@ -1300,14 +1300,14 @@ main(int argc, char *argv[])
   for(i = 0; i < 100; i++){
      d3b:	83 ee 01             	sub    $0x1,%esi
      d3e:	74 50                	je     d90 <exitwait+0x70>
-    pid = fork(NTICKETS);
+    pid = fork(0);
      d40:	83 ec 0c             	sub    $0xc,%esp
-     d43:	6a 40                	push   $0x40
+     d43:	6a 00                	push   $0x0
      d45:	e8 00 2c 00 00       	call   394a <fork>
     if(pid < 0){
      d4a:	83 c4 10             	add    $0x10,%esp
      d4d:	85 c0                	test   %eax,%eax
-    pid = fork(NTICKETS);
+    pid = fork(0);
      d4f:	89 c3                	mov    %eax,%ebx
     if(pid < 0){
      d51:	79 dd                	jns    d30 <exitwait+0x10>
@@ -1370,11 +1370,11 @@ main(int argc, char *argv[])
      dc2:	e8 d9 2c 00 00       	call   3aa0 <printf>
   ppid = getpid();
      dc7:	e8 06 2c 00 00       	call   39d2 <getpid>
-  if((pid = fork(NTICKETS)) == 0){
-     dcc:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+  if((pid = fork(0)) == 0){
+     dcc:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
   ppid = getpid();
      dd3:	89 c6                	mov    %eax,%esi
-  if((pid = fork(NTICKETS)) == 0){
+  if((pid = fork(0)) == 0){
      dd5:	e8 70 2b 00 00       	call   394a <fork>
      dda:	83 c4 10             	add    $0x10,%esp
      ddd:	85 c0                	test   %eax,%eax
@@ -1475,18 +1475,18 @@ main(int argc, char *argv[])
      ec2:	83 c4 10             	add    $0x10,%esp
      ec5:	85 c0                	test   %eax,%eax
      ec7:	0f 88 33 01 00 00    	js     1000 <sharedfd+0x170>
-  pid = fork(NTICKETS);
+  pid = fork(0);
      ecd:	83 ec 0c             	sub    $0xc,%esp
      ed0:	89 c6                	mov    %eax,%esi
   memset(buf, pid==0?'c':'p', sizeof(buf));
      ed2:	bb e8 03 00 00       	mov    $0x3e8,%ebx
-  pid = fork(NTICKETS);
-     ed7:	6a 40                	push   $0x40
+  pid = fork(0);
+     ed7:	6a 00                	push   $0x0
      ed9:	e8 6c 2a 00 00       	call   394a <fork>
   memset(buf, pid==0?'c':'p', sizeof(buf));
      ede:	83 c4 0c             	add    $0xc,%esp
      ee1:	83 f8 01             	cmp    $0x1,%eax
-  pid = fork(NTICKETS);
+  pid = fork(0);
      ee4:	89 c7                	mov    %eax,%edi
   memset(buf, pid==0?'c':'p', sizeof(buf));
      ee6:	19 c0                	sbb    %eax,%eax
@@ -1680,8 +1680,8 @@ main(int argc, char *argv[])
     108b:	83 ec 0c             	sub    $0xc,%esp
     108e:	56                   	push   %esi
     108f:	e8 0e 29 00 00       	call   39a2 <unlink>
-    pid = fork(NTICKETS);
-    1094:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+    pid = fork(0);
+    1094:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
     109b:	e8 aa 28 00 00       	call   394a <fork>
     if(pid < 0){
     10a0:	83 c4 10             	add    $0x10,%esp
@@ -1870,9 +1870,9 @@ main(int argc, char *argv[])
     1270:	6a 01                	push   $0x1
     1272:	e8 29 28 00 00       	call   3aa0 <printf>
     1277:	83 c4 10             	add    $0x10,%esp
-    pid = fork(NTICKETS);
+    pid = fork(0);
     127a:	83 ec 0c             	sub    $0xc,%esp
-    127d:	6a 40                	push   $0x40
+    127d:	6a 00                	push   $0x0
     127f:	e8 c6 26 00 00       	call   394a <fork>
     if(pid < 0){
     1284:	83 c4 10             	add    $0x10,%esp
@@ -2521,8 +2521,8 @@ main(int argc, char *argv[])
     188f:	88 45 ae             	mov    %al,-0x52(%ebp)
     unlink(file);
     1892:	e8 0b 21 00 00       	call   39a2 <unlink>
-    pid = fork(NTICKETS);
-    1897:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+    pid = fork(0);
+    1897:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
     189e:	e8 a7 20 00 00       	call   394a <fork>
     if(pid && (i % 3) == 1){
     18a3:	83 c4 10             	add    $0x10,%esp
@@ -2673,20 +2673,20 @@ main(int argc, char *argv[])
   for(i = 0; i < 40; i++){
     1a0d:	83 fe 28             	cmp    $0x28,%esi
     1a10:	0f 84 8a 00 00 00    	je     1aa0 <concreate+0x290>
-    pid = fork(NTICKETS);
+    pid = fork(0);
     1a16:	83 ec 0c             	sub    $0xc,%esp
     file[1] = '0' + i;
     1a19:	8d 46 30             	lea    0x30(%esi),%eax
-    pid = fork(NTICKETS);
-    1a1c:	6a 40                	push   $0x40
+    pid = fork(0);
+    1a1c:	6a 00                	push   $0x0
     file[1] = '0' + i;
     1a1e:	88 45 ae             	mov    %al,-0x52(%ebp)
-    pid = fork(NTICKETS);
+    pid = fork(0);
     1a21:	e8 24 1f 00 00       	call   394a <fork>
     if(pid < 0){
     1a26:	83 c4 10             	add    $0x10,%esp
     1a29:	85 c0                	test   %eax,%eax
-    pid = fork(NTICKETS);
+    pid = fork(0);
     1a2b:	89 c7                	mov    %eax,%edi
     if(pid < 0){
     1a2d:	0f 88 84 00 00 00    	js     1ab7 <concreate+0x2a7>
@@ -2803,13 +2803,13 @@ main(int argc, char *argv[])
   unlink("x");
     1b35:	c7 04 24 51 47 00 00 	movl   $0x4751,(%esp)
     1b3c:	e8 61 1e 00 00       	call   39a2 <unlink>
-  pid = fork(NTICKETS);
-    1b41:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+  pid = fork(0);
+    1b41:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
     1b48:	e8 fd 1d 00 00       	call   394a <fork>
   if(pid < 0){
     1b4d:	83 c4 10             	add    $0x10,%esp
     1b50:	85 c0                	test   %eax,%eax
-  pid = fork(NTICKETS);
+  pid = fork(0);
     1b52:	89 45 e4             	mov    %eax,-0x1c(%ebp)
   if(pid < 0){
     1b55:	0f 88 b7 00 00 00    	js     1c12 <linkunlink+0xf2>
@@ -4546,9 +4546,9 @@ main(int argc, char *argv[])
     2cf2:	83 c3 01             	add    $0x1,%ebx
     2cf5:	81 fb e8 03 00 00    	cmp    $0x3e8,%ebx
     2cfb:	74 4b                	je     2d48 <forktest+0x78>
-    pid = fork(NTICKETS);
+    pid = fork(0);
     2cfd:	83 ec 0c             	sub    $0xc,%esp
-    2d00:	6a 40                	push   $0x40
+    2d00:	6a 00                	push   $0x0
     2d02:	e8 43 0c 00 00       	call   394a <fork>
     if(pid < 0)
     2d07:	83 c4 10             	add    $0x10,%esp
@@ -4653,14 +4653,14 @@ main(int argc, char *argv[])
   for(i = 0; i < 5000; i++){
     2df0:	81 ff 88 13 00 00    	cmp    $0x1388,%edi
     2df6:	75 d8                	jne    2dd0 <sbrktest+0x40>
-  pid = fork(NTICKETS);
+  pid = fork(0);
     2df8:	83 ec 0c             	sub    $0xc,%esp
-    2dfb:	6a 40                	push   $0x40
+    2dfb:	6a 00                	push   $0x0
     2dfd:	e8 48 0b 00 00       	call   394a <fork>
   if(pid < 0){
     2e02:	83 c4 10             	add    $0x10,%esp
     2e05:	85 c0                	test   %eax,%eax
-  pid = fork(NTICKETS);
+  pid = fork(0);
     2e07:	89 c7                	mov    %eax,%edi
   if(pid < 0){
     2e09:	0f 88 92 03 00 00    	js     31a1 <sbrktest+0x411>
@@ -4771,12 +4771,12 @@ main(int argc, char *argv[])
     2f28:	be 00 00 00 80       	mov    $0x80000000,%esi
     ppid = getpid();
     2f2d:	e8 a0 0a 00 00       	call   39d2 <getpid>
-    pid = fork(NTICKETS);
+    pid = fork(0);
     2f32:	83 ec 0c             	sub    $0xc,%esp
     ppid = getpid();
     2f35:	89 c7                	mov    %eax,%edi
-    pid = fork(NTICKETS);
-    2f37:	6a 40                	push   $0x40
+    pid = fork(0);
+    2f37:	6a 00                	push   $0x0
     2f39:	e8 0c 0a 00 00       	call   394a <fork>
     if(pid < 0){
     2f3e:	83 c4 10             	add    $0x10,%esp
@@ -4818,9 +4818,9 @@ main(int argc, char *argv[])
     2f9c:	83 c6 04             	add    $0x4,%esi
     2f9f:	39 c6                	cmp    %eax,%esi
     2fa1:	74 57                	je     2ffa <sbrktest+0x26a>
-    if((pids[i] = fork(NTICKETS)) == 0){
+    if((pids[i] = fork(0)) == 0){
     2fa3:	83 ec 0c             	sub    $0xc,%esp
-    2fa6:	6a 40                	push   $0x40
+    2fa6:	6a 00                	push   $0x0
     2fa8:	e8 9d 09 00 00       	call   394a <fork>
     2fad:	83 c4 10             	add    $0x10,%esp
     2fb0:	85 c0                	test   %eax,%eax
@@ -5042,9 +5042,9 @@ main(int argc, char *argv[])
     31e5:	e8 b6 08 00 00       	call   3aa0 <printf>
     31ea:	83 c4 10             	add    $0x10,%esp
     31ed:	8d 76 00             	lea    0x0(%esi),%esi
-    if((pid = fork(NTICKETS)) == 0){
+    if((pid = fork(0)) == 0){
     31f0:	83 ec 0c             	sub    $0xc,%esp
-    31f3:	6a 40                	push   $0x40
+    31f3:	6a 00                	push   $0x0
     31f5:	e8 50 07 00 00       	call   394a <fork>
     31fa:	83 c4 10             	add    $0x10,%esp
     31fd:	85 c0                	test   %eax,%eax
@@ -5150,8 +5150,8 @@ main(int argc, char *argv[])
   unlink("bigarg-ok");
     3316:	68 06 4d 00 00       	push   $0x4d06
     331b:	e8 82 06 00 00       	call   39a2 <unlink>
-  pid = fork(NTICKETS);
-    3320:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+  pid = fork(0);
+    3320:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
     3327:	e8 1e 06 00 00       	call   394a <fork>
   if(pid == 0){
     332c:	83 c4 10             	add    $0x10,%esp
@@ -5480,8 +5480,8 @@ main(int argc, char *argv[])
     35f6:	68 aa 4d 00 00       	push   $0x4daa
     35fb:	6a 01                	push   $0x1
     35fd:	e8 9e 04 00 00       	call   3aa0 <printf>
-  pid = fork(NTICKETS);
-    3602:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+  pid = fork(0);
+    3602:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
     3609:	e8 3c 03 00 00       	call   394a <fork>
   if(pid == 0){
     360e:	83 c4 10             	add    $0x10,%esp

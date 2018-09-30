@@ -186,21 +186,32 @@ fork(int tickets)
 {
   int i, pid;
   struct proc *np;
-  struct proc *curproc = myproc();
+    struct proc *curproc = myproc();
 
-  // Allocate process.
-  if((np = allocproc()) == 0){
-    return -1;
+
+    // Allocate process.
+    if((np = allocproc()) == 0){
+        return -1;
+    }
+
+    // check tickets passed by argument
+    if (tickets == 0) {
+        np->tickets = NTICKETS;
+    } else if (tickets > MAXTICKETS) {
+        np->tickets = MAXTICKETS;
+    } else {
+        np->tickets = tickets;
+    }
+
+    // Copy process state from proc.
+    if((np->pgdir = copyuvm(curproc->pgdir, curproc->sz)) == 0){
+      kfree(np->kstack);
+      np->kstack = 0;
+      np->state = UNUSED;
+      return -1;
   }
 
-  // Copy process state from proc.
-  if((np->pgdir = copyuvm(curproc->pgdir, curproc->sz)) == 0){
-    kfree(np->kstack);
-    np->kstack = 0;
-    np->state = UNUSED;
-    return -1;
-  }
-  np->tickets = tickets;
+
   np->sz = curproc->sz;
   np->parent = curproc;
   *np->tf = *curproc->tf;
@@ -400,6 +411,8 @@ void scheduler(void){
 
           // Aqui o processo foi escolhido para rodar
 
+//          cprintf("G: %d | Intervalo: [%d:%d] | pid: %d | p->tik: %d |\n", golden_ticket, count, (count+p->tickets), p->pid, p->tickets);
+
           //EXIBE INFORMAÇÃO DOS PROCESSOS
           occurrences[p->pid]++;  // Incrementa quantidade de ocorrências por processo
           if(d % 100 == 0){
@@ -570,9 +583,7 @@ kill(int pid)
 // Print a process listing to console.  For debugging.
 // Runs when user types ^P on console.
 // No lock to avoid wedging a stuck machine further.
-void
-procdump(int *occurrences)
-{
+void procdump(int *occurrences){
   static char *states[] = {
   [UNUSED]    "unused",
   [EMBRYO]    "embryo",
@@ -586,8 +597,6 @@ procdump(int *occurrences)
   char *state;
   uint pc[10];
 
-
-
   cprintf("PID\t| NAME\t\t| STATE   \t| QTD_T\t| OC\t| PROC\t| ESTI\t|\n");
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
 
@@ -599,14 +608,12 @@ procdump(int *occurrences)
       else
         state = "???";
 
-
       // ESTATÍSTICAS DOS PROCESSOS
       cprintf("%d\t| %s     \t| %s   \t| %d\t|%d\t| %d%\t| %d%\t|", \
               p->pid, p->name, state, p->tickets, occurrences[p->pid],\
               (int)(((float)occurrences[p->pid]/total_occurrences(occurrences))*100), \
               (int)(((float)p->tickets/tickets_total())*100)); //PORCENTAGEM ESTIMADA
       //----------------------------------------------
-
 
     if(p->state == SLEEPING){
       getcallerpcs((uint*)p->context->ebp+2, pc);

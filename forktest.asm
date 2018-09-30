@@ -76,9 +76,9 @@ main(void)
   86:	83 c3 01             	add    $0x1,%ebx
   89:	81 fb e8 03 00 00    	cmp    $0x3e8,%ebx
   8f:	74 5f                	je     f0 <forktest+0xa0>
-    pid = fork(NTICKETS);
+    pid = fork(0);
   91:	83 ec 0c             	sub    $0xc,%esp
-  94:	6a 40                	push   $0x40
+  94:	6a 00                	push   $0x0
   96:	e8 0f 03 00 00       	call   3aa <fork>
     if(pid < 0)
   9b:	83 c4 10             	add    $0x10,%esp

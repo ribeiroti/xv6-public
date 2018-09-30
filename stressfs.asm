@@ -5,8 +5,8 @@ _stressfs: formato do arquivo elf32-i386
 Desmontagem da seção .text:
 
 00000000 <main>:
+#include "fs.h"
 #include "fcntl.h"
-#include "param.h"
 
 int
 main(int argc, char *argv[])
@@ -53,9 +53,9 @@ main(int argc, char *argv[])
   55:	56                   	push   %esi
   56:	e8 95 01 00 00       	call   1f0 <memset>
   5b:	83 c4 10             	add    $0x10,%esp
-    if(fork(NTICKETS) > 0)
+    if(fork(0) > 0)
   5e:	83 ec 0c             	sub    $0xc,%esp
-  61:	6a 40                	push   $0x40
+  61:	6a 00                	push   $0x0
   63:	e8 22 03 00 00       	call   38a <fork>
   68:	83 c4 10             	add    $0x10,%esp
   6b:	85 c0                	test   %eax,%eax

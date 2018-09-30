@@ -47,13 +47,13 @@ main(void)
   4b:	68 f0 07 00 00       	push   $0x7f0
   50:	6a 01                	push   $0x1
   52:	e8 39 04 00 00       	call   490 <printf>
-    pid = fork(NTICKETS);
-  57:	c7 04 24 40 00 00 00 	movl   $0x40,(%esp)
+    pid = fork(0);
+  57:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
   5e:	e8 d7 02 00 00       	call   33a <fork>
     if(pid < 0){
   63:	83 c4 10             	add    $0x10,%esp
   66:	85 c0                	test   %eax,%eax
-    pid = fork(NTICKETS);
+    pid = fork(0);
   68:	89 c3                	mov    %eax,%ebx
     if(pid < 0){
   6a:	78 25                	js     91 <main+0x91>

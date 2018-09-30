@@ -5,8 +5,8 @@ _zombie: formato do arquivo elf32-i386
 Desmontagem da seção .text:
 
 00000000 <main>:
+#include "stat.h"
 #include "user.h"
-#include "param.h"
 
 int
 main(void)
@@ -18,8 +18,8 @@ main(void)
    b:	89 e5                	mov    %esp,%ebp
    d:	51                   	push   %ecx
    e:	83 ec 10             	sub    $0x10,%esp
-  if(fork(NTICKETS) > 0)
-  11:	6a 40                	push   $0x40
+  if(fork(0) > 0)
+  11:	6a 00                	push   $0x0
   13:	e8 72 02 00 00       	call   28a <fork>
   18:	83 c4 10             	add    $0x10,%esp
   1b:	85 c0                	test   %eax,%eax
