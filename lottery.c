@@ -17,7 +17,7 @@ int main() {
         process_test(i*100);
     }
 
-    // TODO: Bug: Se chamar processo com um bilhete primeiro, não acontece o fork em todos.
+    //Bug: Se não criar  este processo o último do laço fica sempre como zombie.
     process_test(1); // Para não bugar.
 
     exit();

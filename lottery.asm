@@ -5,10 +5,10 @@ _lottery: formato do arquivo elf32-i386
 Desmontagem da seção .text:
 
 00000000 <main>:
+
 #define QTD_PROC    10
 
 void process_test(int tickets);
-
 
 int main() {
    0:	8d 4c 24 04          	lea    0x4(%esp),%ecx
@@ -17,55 +17,51 @@ int main() {
    a:	55                   	push   %ebp
    b:	89 e5                	mov    %esp,%ebp
    d:	53                   	push   %ebx
-
-    for (int i = 1; i <= QTD_PROC; i++) {
-   e:	bb 01 00 00 00       	mov    $0x1,%ebx
-int main() {
+   e:	bb 64 00 00 00       	mov    $0x64,%ebx
   13:	51                   	push   %ecx
-  14:	eb 12                	jmp    28 <main+0x28>
+  14:	eb 15                	jmp    2b <main+0x2b>
   16:	8d 76 00             	lea    0x0(%esi),%esi
   19:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
+  20:	83 c3 64             	add    $0x64,%ebx
+
+
     for (int i = 1; i <= QTD_PROC; i++) {
-  20:	83 c3 01             	add    $0x1,%ebx
-  23:	83 fb 0b             	cmp    $0xb,%ebx
-  26:	74 20                	je     48 <main+0x48>
-        process_test(i*i*10);
-  28:	89 d8                	mov    %ebx,%eax
+  23:	81 fb 4c 04 00 00    	cmp    $0x44c,%ebx
+  29:	74 15                	je     40 <main+0x40>
 
 void process_test(int tickets){
 
     int i = 0;
 
-    if ((fork(tickets)) != 0) {
-  2a:	83 ec 0c             	sub    $0xc,%esp
-        process_test(i*i*10);
-  2d:	0f af c3             	imul   %ebx,%eax
-  30:	8d 04 80             	lea    (%eax,%eax,4),%eax
-  33:	01 c0                	add    %eax,%eax
-    if ((fork(tickets)) != 0) {
-  35:	50                   	push   %eax
-  36:	e8 9f 02 00 00       	call   2da <fork>
-  3b:	83 c4 10             	add    $0x10,%esp
-  3e:	85 c0                	test   %eax,%eax
-  40:	74 de                	je     20 <main+0x20>
-  42:	eb fe                	jmp    42 <main+0x42>
-  44:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
-  48:	83 ec 0c             	sub    $0xc,%esp
-  4b:	6a 01                	push   $0x1
-  4d:	e8 88 02 00 00       	call   2da <fork>
-  52:	83 c4 10             	add    $0x10,%esp
-  55:	85 c0                	test   %eax,%eax
-  57:	74 02                	je     5b <main+0x5b>
-  59:	eb fe                	jmp    59 <main+0x59>
+    if (fork(tickets)) {
+  2b:	83 ec 0c             	sub    $0xc,%esp
+  2e:	53                   	push   %ebx
+  2f:	e8 a6 02 00 00       	call   2da <fork>
+  34:	83 c4 10             	add    $0x10,%esp
+  37:	85 c0                	test   %eax,%eax
+  39:	74 e5                	je     20 <main+0x20>
+  3b:	eb fe                	jmp    3b <main+0x3b>
+  3d:	8d 76 00             	lea    0x0(%esi),%esi
+  40:	83 ec 0c             	sub    $0xc,%esp
+  43:	6a 01                	push   $0x1
+  45:	e8 90 02 00 00       	call   2da <fork>
+  4a:	83 c4 10             	add    $0x10,%esp
+  4d:	85 c0                	test   %eax,%eax
+  4f:	74 02                	je     53 <main+0x53>
+  51:	eb fe                	jmp    51 <main+0x51>
     exit();
-  5b:	e8 82 02 00 00       	call   2e2 <exit>
+  53:	e8 8a 02 00 00       	call   2e2 <exit>
+  58:	66 90                	xchg   %ax,%ax
+  5a:	66 90                	xchg   %ax,%ax
+  5c:	66 90                	xchg   %ax,%ax
+  5e:	66 90                	xchg   %ax,%ax
 
 00000060 <process_test>:
 void process_test(int tickets){
   60:	55                   	push   %ebp
   61:	89 e5                	mov    %esp,%ebp
   63:	83 ec 14             	sub    $0x14,%esp
-    if ((fork(tickets)) != 0) {
+    if (fork(tickets)) {
   66:	ff 75 08             	pushl  0x8(%ebp)
   69:	e8 6c 02 00 00       	call   2da <fork>
   6e:	83 c4 10             	add    $0x10,%esp

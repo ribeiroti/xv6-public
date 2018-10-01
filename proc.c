@@ -201,8 +201,8 @@ fork(int tickets)
     return -1;
   }
 
-  // check tickets passed by argument
-  if (!tickets) {
+  // VERIFICA OS TICKETS PASSADO POR ARGUMENTO E DEFINE TETO
+  if (tickets <= 0) {
     np->tickets = NTICKETS;
   } else if (tickets > MAXTICKETS) {
     np->tickets = MAXTICKETS;
